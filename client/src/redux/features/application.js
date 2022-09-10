@@ -8,7 +8,7 @@ const initialState = {
 
 
 export default function applicationReduser (state = initialState,action) {
-    switch (action.payload){
+    switch (action.type){
         case "application/signup/pending":
             return {
                 ...state,
@@ -39,7 +39,7 @@ export default function applicationReduser (state = initialState,action) {
         case "application/singin/rejected":
             return {
                 ...state,
-                error: action.error
+                error: action.payload
             }
         case "logout":
             return {
@@ -83,12 +83,12 @@ export const auth = (email, password,navigate) => {
         });
         const json =  await res.json();
         if (json.error) {
-            dispatch({ type: "application/signin/rejected", error: json.error})
+            return  dispatch({ type: "application/singin/rejected", payload: json.error  })
+
         } else {
             dispatch({type: "application/signin/fulfilled", payload: json });
             localStorage.setItem("token", json.token);
             navigate("/current");
-            window.location.reload()
         }
     }
 }

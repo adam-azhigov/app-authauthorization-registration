@@ -8,7 +8,6 @@ function Popup({visible,onClose, userCurrent}) {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
 
-    const id = userCurrent?._id;
 
     useEffect(() => {
         setEmail(userCurrent?.email);
@@ -29,7 +28,7 @@ function Popup({visible,onClose, userCurrent}) {
 
     const handleEditUser = async () => {
         await dispatch(
-            editUser(id , {name,email,password})).then( () => {
+            editUser( {name,email,password})).then( () => {
                 onClose()
         })
     }

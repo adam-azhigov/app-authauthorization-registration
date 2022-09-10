@@ -36,15 +36,7 @@ export  const userReduser = (state= initialState, action) => {
         case "user/edit/fulfilled":
             return {
                 ...state,
-                items: state.items.map(item => {
-                    if (item.id === action.payload.id) {
-                        return {
-                            ...item,
-                            ...action.payload.data,
-                        }
-                    }
-                    return item
-                })
+                items: action.payload
             }
         default:
             return state
@@ -76,7 +68,7 @@ export const loadUserCurrent = () => {
     }
 }
 
-export const editUser = (id,data) => {
+export const editUser = (data) => {
     return async (dispatch,getState) => {
         dispatch ({type: "user/edit/pending"});
 
@@ -95,7 +87,8 @@ export const editUser = (id,data) => {
 
         })
         console.log(data.password)
-        dispatch ({type: "user/edit/fulfilled", payload: {id, data}})
+        dispatch ({type: "user/edit/fulfilled", payload: {data}})
+        window.location.replace("/current")
     }
 }
 

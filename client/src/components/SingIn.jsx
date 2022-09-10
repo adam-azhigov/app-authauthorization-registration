@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector,} from "react-redux";
 import {auth} from "../redux/features/application";
-import {useNavigate, Navigate} from "react-router-dom";
+import {useNavigate,} from "react-router-dom";
 
 const SingIn = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [password, setPassword] = useState();
     const [email, setEmail] = useState();
+    const error = useSelector( state => state.application.error)
 
 
 
@@ -24,8 +25,10 @@ const SingIn = () => {
     };
 
 
+
     return (
         <div>
+           <div className='text-white text-center'>{error}</div>
             <form className="bg-red-500 w-2/3 h-60 mx-auto rounded-lg">
 
                 <label className="block w-2/4 mx-auto mt-5">

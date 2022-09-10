@@ -59,11 +59,11 @@ module.exports.userController = {
         try {
             const canditate  = await User.findOne({email})
                 if (!canditate) {
-                    return  res.status(404).json("Пользователь не найден")
+                    return  res.status(404).json({error: "Пользователь не найден"})
             }
             const isValidPass = await bcrypt.compare(password, canditate.password)
                 if (!isValidPass) {
-                    return res.status(404).json("Неверный логин и пароль")
+                    return res.status(404).json({error: "Неверный логин или пароль"})
                 }
             const payload = {
                 id: canditate._id
@@ -81,7 +81,7 @@ module.exports.userController = {
              })
         } catch (e) {
             console.log(e)
-            res.status(500).json('Не удалось авторизоваться')
+            res.status(500).json({error:'Не удалось авторизоваться'})
         }
 
     },
