@@ -5,8 +5,10 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const router  = require('./routes/users.route')
 
-mongoose.connect(
-    process.env.MONGODB_URL)
+mongoose.connect(process.env.MONGODB_URL,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    })
     .then( () => console.log('монго бд подключен'))
     .catch( (err) => console.log('ошибка:', err))
 
