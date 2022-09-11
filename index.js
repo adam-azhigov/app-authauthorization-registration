@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const router  = require('./routes/users.route')
 
 mongoose.connect(
-    process.env.MONGODB)
+    process.env.MONGODB_URL)
     .then( () => console.log('монго бд подключен'))
     .catch( (err) => console.log('ошибка:', err))
 
