@@ -32,7 +32,7 @@ const PersonalArea = () => {
                     },
                     body: formData
                 })
-                window.location.replace("/account")
+                window.location.replace("/current")
             } catch (err) {
                 console.log(err)
                 alert('ошибка при загрузке файла!')
