@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {useDispatch, useSelector,} from "react-redux";
 import {auth} from "../redux/features/application";
 import {useNavigate,} from "react-router-dom";
+import {useEffect} from "react";
+
 
 const SingIn = () => {
     const dispatch = useDispatch();
@@ -24,7 +26,9 @@ const SingIn = () => {
         dispatch(auth(email,password,navigate));
     };
 
-
+    useEffect(() => {
+        document.title = 'авторизация';
+    })
 
     return (
         <div>

@@ -98,7 +98,9 @@ const SignUp = () => {
         }
     }
 
-
+    useEffect(() => {
+        document.title = 'регистрация';
+    })
 
     const handleSubmit = (e) => {
         e.preventDefault();

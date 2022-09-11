@@ -16,6 +16,9 @@ const PersonalArea = () => {
         dispatch(loadUserCurrent());
     },[dispatch])
 
+    useEffect(() => {
+        document.title = 'личный кабинет';
+    })
 
     const handleChangeFile = async (event) => {
             try {
@@ -29,7 +32,7 @@ const PersonalArea = () => {
                     },
                     body: formData
                 })
-                window.location.replace("/current")
+                window.location.replace("/account")
             } catch (err) {
                 console.log(err)
                 alert('ошибка при загрузке файла!')

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {loadUserAll, loadUserCurrent} from "../redux/features/users";
+import Preloader from "./Preloader";
 
 
 
@@ -8,6 +9,7 @@ const Users = () => {
     const dispatch = useDispatch();
     const date = new Date().getFullYear()
     const [search, setSearch] = useState("")
+    const loading = useSelector(state => state.users.loading)
     const users = useSelector(state => {
         return state.users.items
             .map(item => item)
@@ -25,6 +27,13 @@ const Users = () => {
         dispatch(loadUserAll());
     },[dispatch]);
 
+    useEffect(() => {
+        document.title = 'пользователи ';
+    })
+
+    if (loading){
+       return <Preloader />
+    }
     return (
         <>
         <div className="  w-full backdrop-brightness-200 h-14 mx-auto mt-5 text-center mt-20  ">
