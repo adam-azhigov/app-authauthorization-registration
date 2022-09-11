@@ -43,7 +43,7 @@ function Popup({visible,onClose, userCurrent}) {
         <div
             id='container'
             onClick={handleOnClose}
-            className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
+            className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-20">
             <div className="bg-white p-2 rounded w-72">
 
                 <div className="flex flex-col">
