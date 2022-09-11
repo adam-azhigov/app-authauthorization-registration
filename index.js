@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const router  = require('./routes/users.route')
 
 mongoose.connect(
-    'mongodb+srv://adam:04am09ad@cluster0.3hll9.mongodb.net/Future?retryWrites=true&w=majority')
+    process.env.MONGODB)
     .then( () => console.log('монго бд подключен'))
     .catch( (err) => console.log('ошибка:', err))
 
@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(router) ;
 
 
-app.listen(4000, (err) => {
+app.listen(process.env.PORT || 4000, (err) => {
     if (err){
         console.log(err)
     } else {

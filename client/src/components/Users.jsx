@@ -27,7 +27,7 @@ const Users = () => {
 
     return (
         <>
-        <div className=" z-0 w-full backdrop-brightness-200 h-14 mx-auto mt-5 text-center mt-20  ">
+        <div className="  w-full backdrop-brightness-200 h-14 mx-auto mt-5 text-center mt-20  ">
             <input type='search'
                    placeholder="поиск"
                    onChange={(e) => setSearch(e.target.value)}
