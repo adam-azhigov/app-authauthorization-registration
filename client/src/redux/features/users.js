@@ -58,7 +58,7 @@ export const loadUserCurrent = () => {
     return async (dispatch, getState ) => {
         dispatch({ type: "userCurrent/load/pending" });
         const state = getState();
-        const res = await fetch("http://localhost:4000/auth/me",{
+        const res = await fetch("/auth/me",{
             headers: {
                 Authorization: `Bearer ${state.application.token}`,
             }
