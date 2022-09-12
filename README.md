@@ -15,11 +15,12 @@
 
 При разработке проекта использовали:
 - JavaScript / React (Hooks);
-- redux / redux-thunk / redux-logger для организации стейта;
-- react-router-dom для роутинга;
+- React
+- Redux / redux-thunk / redux-logger для организации стейта;
+- React-router-dom для роутинга;
 - REST API, асинхронные запросы;
-- classnames / Material-ui/ react-loading-skeleton;
-- nodeJS, express, mongoDB,
+- Tailwind;
+- NodeJS, express, mongoDB,
 
 ## Запуск проекта
 
