@@ -1,11 +1,13 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {loadUserCurrent} from "../redux/features/users";
+import { useNavigate } from 'react-router-dom'
 import Popup from "./Popup";
 
 const PersonalArea = () => {
     const dispatch = useDispatch();
     const inputFileRef = useRef();
+    const navigate = useNavigate()
 
     const [popUp, setPopUp] = useState(false);
     const token = useSelector(state => state.application?.token)

@@ -110,7 +110,7 @@ const SignUp = () => {
     return (
         <div>
             <form className="bg-red-500 w-2/3 mx-auto rounded-lg">
-                <label className="block w-2/4 mx-auto mt-5">
+                <label className="block md:w-2/4 mx-auto mt-5">
                     <span className=" after:ml-0.5 block text-sm font-medium text-white">
                          ФИО
                     </span>
@@ -123,7 +123,7 @@ const SignUp = () => {
                            onChange={handleChangeFullname}
                     />
                 </label>
-                <label className="block w-2/4 mx-auto mt-5">
+                <label className="block md:w-2/4 mx-auto mt-5">
                     <span className="after:ml-0.5 after:text-red-500 block text-sm font-medium text-white">
                          Email
                     </span>
@@ -137,7 +137,7 @@ const SignUp = () => {
 
                     />
                 </label>
-                <label className="block w-2/4 mx-auto mt-5">
+                <label className="block md:w-2/4 mx-auto mt-5">
                     <span className=" after:ml-0.5  block text-sm font-medium text-white">
                          Пароль
                     </span>
@@ -151,7 +151,7 @@ const SignUp = () => {
 
                     />
                 </label>
-                <label className="block w-2/4 mx-auto mt-5">
+                <label className="block md:w-2/4 mx-auto mt-5">
                 <span className=" after:ml-0.5  block text-sm font-medium text-white">
                          Дата рождения
                     </span>
@@ -164,7 +164,7 @@ const SignUp = () => {
                            onChange={handleChangeDateOfBirth}
                     />
                 </label>
-                <span className="block w-2/4 mx-auto mt-5 text-xs text-white">Выберите  пол</span>
+                <span className="block md:w-2/4 mx-auto mt-5 text-xs text-white">Выберите  пол</span>
                 <div className="flex w-2/4 mx-auto justify-evenly">
                     <div>
                         <label className="text-xs " >

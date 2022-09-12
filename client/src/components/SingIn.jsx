@@ -32,9 +32,8 @@ const SingIn = () => {
 
     return (
         <div>
-           <div className='text-white text-center'>{error}</div>
-            <form className="bg-red-500 w-2/3 h-60 mx-auto rounded-lg">
-
+           <div className='text-yellow-500 text-center'>{error}</div>
+            <form className="bg-red-500  h-60  rounded-lg">
                 <label className="block w-2/4 mx-auto mt-5">
                     <span className="after:ml-0.5 after:text-red-500 block text-sm font-medium text-white">
                          Email
