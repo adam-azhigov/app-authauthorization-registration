@@ -46,10 +46,10 @@ const Header = () => {
                     bg-red-500 z-10   left-0 w-full md:w-auto  
                      transition-all duration-700 ease-in ${open ? '  top-[58px] opacity-100' : '  top-[-160px]'  } `}>
                        <div>
-                          <Link to='/users'   className={'hover:border-b-2 border-amber-400 text-gray-700 font-[Verdana] md:ml-4 active:text-white  focus:text-white'} onClick={() => setOpen(!open)}> Пользователи</Link>
+                          <Link to='/people'   className={'hover:border-b-2 border-amber-400 text-gray-700 font-[Verdana] md:ml-4 active:text-white  focus:text-white'} onClick={() => setOpen(!open)}> Пользователи</Link>
                        </div>
                         <div>
-                            <Link to='/current' className={'hover:border-b-2 border-amber-400 cursor-pointer  text-gray-700 font-[Verdana] md:ml-4 active:text-white  focus:text-white '} onClick={() => setOpen(!open)} > Личный кабинет</Link>
+                            <Link to='/account' className={'hover:border-b-2 border-amber-400 cursor-pointer  text-gray-700 font-[Verdana] md:ml-4 active:text-white  focus:text-white '} onClick={() => setOpen(!open)} > Личный кабинет</Link>
                         </div>
                         <div>
                             <Link to='/login' className={'hover:border-b-2 border-amber-400 text-gray-700 mr-2 font-[Verdana] md:ml-4 active:text-white  focus:text-white'} onClick={handleChangeLogout} > Выйти</Link>

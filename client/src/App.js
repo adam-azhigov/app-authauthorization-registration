@@ -14,8 +14,8 @@ function App() {
       <Routes>
           <Route path="/" element={ <SignUp/> }/>
           <Route path="/login" element={ <SingIn/> }/>
-          <Route path="/current" element={ <PersonalArea/> }/>
-          <Route path="/users" element={ <Users/> }/>
+          <Route path="/account" element={ <PersonalArea/> }/>
+          <Route path="/people" element={ <Users/> }/>
       </Routes>
     </div>
   );
