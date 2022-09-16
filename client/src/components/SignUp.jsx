@@ -5,7 +5,6 @@ import { createUser } from "../redux/features/application";
 
 const SignUp = () => {
     const dispatch = useDispatch();
-    const token = useSelector(state => state.application?.token)
     const [password,setPassword] = useState("");
     const [fullName,setFullName] = useState("");
     const [email,setEmail] = useState("");
@@ -108,102 +107,93 @@ const SignUp = () => {
         dispatch(createUser(password, fullName, gender, dateOfBirth,email, navigate))
     }
 
-    if (!token) {
-        return (
-                <div> </div>
-            )
-    } else  {
-        return (
-            <div>
-                <form className="bg-red-500 w-2/3 mx-auto rounded-lg">
-                    <label className="block md:w-2/4 mx-auto mt-5">
+    return (
+        <div>
+            <form className="bg-red-500 w-2/3 mx-auto rounded-lg">
+                <label className="block md:w-2/4 mx-auto mt-5">
                     <span className=" after:ml-0.5 block text-sm font-medium text-white">
                          ФИО
                     </span>
-                        {(fullNameDirty && fullNameError) && <div className="text-#050C2A">{fullNameError}</div>}
-                        <input type="text"
-                               name="fullName"
-                               className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-                               placeholder="Адам Ажигов"
-                               onBlur={e => blurHandler(e)}
-                               onChange={handleChangeFullname}
-                        />
-                    </label>
-                    <label className="block md:w-2/4 mx-auto mt-5">
+                    {(fullNameDirty && fullNameError) && <div className="text-#050C2A">{fullNameError}</div>}
+                    <input type="text"
+                           name="fullName"
+                           className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                           placeholder="Адам Ажигов"
+                           onBlur={e => blurHandler(e)}
+                           onChange={handleChangeFullname}
+                    />
+                </label>
+                <label className="block md:w-2/4 mx-auto mt-5">
                     <span className="after:ml-0.5 after:text-red-500 block text-sm font-medium text-white">
                          Email
                     </span>
-                        {(emailDirty && emailError) && <div className="text-#050C2A">{emailError}</div>}
-                        <input type="email"
-                               name="email"
-                               className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-                               placeholder="you@gmail.com"
-                               onChange={handleChangeEmail}
-                               onBlur={e => blurHandler(e)}
+                    {(emailDirty && emailError) && <div className="text-#050C2A">{emailError}</div>}
+                    <input  type="email"
+                            name="email"
+                            className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                            placeholder="you@gmail.com"
+                            onChange={handleChangeEmail}
+                            onBlur={e => blurHandler(e)}
 
-                        />
-                    </label>
-                    <label className="block md:w-2/4 mx-auto mt-5">
+                    />
+                </label>
+                <label className="block md:w-2/4 mx-auto mt-5">
                     <span className=" after:ml-0.5  block text-sm font-medium text-white">
                          Пароль
                     </span>
-                        {(passwordDirty && passwordError) && <div className="#050C2A">{passwordError}</div>}
-                        <input type="password"
-                               name="password"
-                               className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-                               placeholder="******"
-                               onBlur={e => blurHandler(e)}
-                               onChange={handleChangePassword}
+                    {(passwordDirty && passwordError) && <div className="#050C2A">{passwordError}</div>}
+                    <input type="password"
+                           name="password"
+                           className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                           placeholder="******"
+                           onBlur={e => blurHandler(e)}
+                           onChange={handleChangePassword}
 
-                        />
-                    </label>
-                    <label className="block md:w-2/4 mx-auto mt-5">
+                    />
+                </label>
+                <label className="block md:w-2/4 mx-auto mt-5">
                 <span className=" after:ml-0.5  block text-sm font-medium text-white">
                          Дата рождения
                     </span>
-                        {(dateOfBirthDirty && dateOfBirthError) && <div className="#050C2A">{dateOfBirthError}</div>}
-                        <input type="date"
-                               name="dateOfBirth"
-                               className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-                               placeholder="мм.чч.гг"
-                               onBlur={e => blurHandler(e)}
-                               onChange={handleChangeDateOfBirth}
-                        />
-                    </label>
-                    <span className="block md:w-2/4 mx-auto mt-5 text-xs text-white">Выберите  пол</span>
-                    <div className="flex w-2/4 mx-auto justify-evenly">
-                        <div>
-                            <label className="text-xs ">
-                                <span>М</span>
-                                <input type="radio"
-                                       value="мужчина"
-                                       name="gender"
-                                       onChange={handleChangeGender}
-                                       className="mt-1   bg-white border  shadow-none border-slate-300 placeholder-slate-400 focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label>
-                                <span className="text-xs">Ж</span>
-                                <input type="radio"
-                                       value="женщина"
-                                       name="gender"
-                                       onChange={handleChangeGender}
-                                       className="mt-1   bg-white border shadow-sm border-slate-300 placeholder-slate-400  focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-                                />
-                            </label>
-                        </div>
-
+                    {(dateOfBirthDirty && dateOfBirthError) && <div className="#050C2A">{dateOfBirthError}</div>}
+                    <input type="date"
+                           name="dateOfBirth"
+                           className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                           placeholder="мм.чч.гг"
+                           onBlur={e => blurHandler(e)}
+                           onChange={handleChangeDateOfBirth}
+                    />
+                </label>
+                <span className="block md:w-2/4 mx-auto mt-5 text-xs text-white">Выберите  пол</span>
+                <div className="flex w-2/4 mx-auto justify-evenly">
+                    <div>
+                        <label className="text-xs " >
+                            <span>М</span>
+                            <input type="radio"
+                                   value="мужчина"
+                                   name="gender"
+                                   onChange={handleChangeGender}
+                                   className="mt-1   bg-white border  shadow-none border-slate-300 placeholder-slate-400 focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                            />
+                        </label>
                     </div>
-                    <button disabled={!formValid} type='submit'
-                            className="bg-red-400 mx-auto w-2/4 h-10 block rounded-lg"
-                            onClick={handleSubmit}>Регистрация
-                    </button>
-                </form>
-            </div>
-        );
-    }
+                    <div>
+                        <label>
+                            <span className="text-xs">Ж</span>
+                            <input type="radio"
+                                   value="женщина"
+                                   name="gender"
+                                   onChange={handleChangeGender}
+                                   className="mt-1   bg-white border shadow-sm border-slate-300 placeholder-slate-400  focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                            />
+                        </label>
+                    </div>
+
+                </div>
+                <button disabled={!formValid}  type='submit' className="bg-red-400 mx-auto w-2/4 h-10 block rounded-lg" onClick={handleSubmit}>Регистрация</button>
+            </form>
+        </div>
+    );
 };
 
 export default SignUp;
